@@ -1,9 +1,9 @@
 version: "3.7"
-service:
 
+services:
   app:
     build: .
-    container_name:
+    container_name: ${PROJECT_NAME}_nodejs_${NODE_ENV}
     depends_on: 
       - postgres
     ports:
@@ -13,7 +13,7 @@ service:
       - .env
 
   postgres:
-    container_name:
+    container_name: ${PROJECT_NAME}_postgres_${NODE_ENV}
     image: postgres:12-alpine
     hostname: ${DB_HOST}
     environment:

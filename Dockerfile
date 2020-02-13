@@ -1,15 +1,17 @@
 FROM node:12-alpine
-EXPOSE 3000 9229
 
 WORKDIR /home/app
 
-COPY package.json /home/app/
-COPY package-lock.json /home/app/
+COPY package-lock.json .
+COPY package.json .
 
 RUN npm install
 
-COPY scripts/ /home/app
+COPY src/ ./src/
+COPY tsconfig.json .
 
 RUN npm run build
 
-CMD npm run start
+EXPOSE 3000 9229
+
+ENTRYPOINT ["npm","run","start"]
