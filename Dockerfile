@@ -14,4 +14,4 @@ RUN npm run build
 
 EXPOSE 3000 9229
 
-ENTRYPOINT ["npm","run","start"]
+ENTRYPOINT ["npm","run","production"]
